@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WhatsApp Pairing</title>
+</head>
+<body>
+  <h1>Scan the QR Code to Pair</h1>
+  <div id="qr-code-container"></div>
+  <p>Session Link: <a href="" id="session-link"></a></p>
+
+  <script>
+    async function fetchPairingCode() {
+      const phone = "YOUR_PHONE_NUMBER"; // Replace with the actual phone number
+
+      const response = await fetch(`/pair?phone=${phone}`);
+      const data = await response.json();
+
+      if (data.qrCode) {
+        // Display the QR code
+        const qrCodeContainer = document.getElementById('qr-code-container');
+        const img = document.createElement('img');
+        img.src = data.qrCode;
+        qrCodeContainer.appendChild(img);
+
+        // Display the session link
+        const sessionLink = document.getElementById('session-link');
+        sessionLink.href = data.pastebinLink;
+        sessionLink.textContent = "Click here to view your session";
+      } else {
+        alert('Error generating pairing code');
+      }
+    }
+
+    fetchPairingCode();
+  </script>
+</body>
+</html>
