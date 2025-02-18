@@ -1,0 +1,24 @@
+{
+  "name": "express-pair",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@hapi/boom": "^10.0.1",
+    "@whiskeysockets/baileys": "^6.7.12",
+    "cfonts": "^3.2.0",
+    "chalk": "^5.3.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "pastebin-js": "^1.0.6",
+    "pino": "^8.15.1",
+    "qrcode": "^1.5.0",
+    "yargs": "^17.6.0"
+  }
+}
